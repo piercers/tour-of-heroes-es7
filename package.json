@@ -1,0 +1,29 @@
+{
+  "name": "tour-of-heroes-es7",
+  "version": "1.0.0",
+  "description": "Angular 2's \"Tour Of Heroes\" written completely in plain ES7 JavaScript using Babel.",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "jspm install",
+    "start": "browser-sync start --server --files 'index.(js|html), app/**/*.(js|html)'"
+  },
+  "author": "Ryan Pierce",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.11.0",
+    "jspm": "^0.16.19"
+  },
+  "jspm": {
+    "dependencies": {
+      "angular2": "npm:angular2@^2.0.0-beta.0"
+    },
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4"
+    }
+  },
+  "dependencies": {
+    "angular2": "^2.0.0-beta.0"
+  }
+}
