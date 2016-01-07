@@ -1,22 +1,11 @@
 import {Component} from 'angular2/core';
 import HeroService from './hero.service';
-import HeroDetailComponent from './hero-detail.component';
+import HeroFormComponent from './hero-form.component';
 
 @Component({
   selector: 'app',
   template: `
-    <h1>{{title}}</h1>
-
-    <h2>My Heroes</h2>
-    <ul class="heroes">
-      <li *ngFor="#hero of heroes"
-        (click)="onSelect(hero)"
-        [class.selected]="hero === selectedHero">
-        <span class="badge">{{hero.id}}</span> {{hero.name}}
-      </li>
-    </ul>
-
-    <my-hero-detail [hero]="selectedHero"></my-hero-detail>
+    <hero-form></hero-form>
   `,
   styles: [`
     .selected {
@@ -66,7 +55,7 @@ import HeroDetailComponent from './hero-detail.component';
       border-radius: 4px 0px 0px 4px;
     }
   `],
-  directives: [HeroDetailComponent],
+  directives: [HeroFormComponent],
   providers: [HeroService],
 })
 export default class AppComponent {
@@ -75,21 +64,7 @@ export default class AppComponent {
   }
 
   constructor(heroService) {
-    this.title = 'Tour of Heroes';
-    this.heroService = heroService;
-  }
-
-  onSelect(hero) {
-    this.selectedHero = hero;
-  }
-
-  getHeroes() {
-    this.heroService.getHeroes()
-      .then(heroes => this.heroes = heroes);
-  }
-
-  ngOnInit() {
-    this.getHeroes();
+    this._heroService = heroService;
   }
 }
 
